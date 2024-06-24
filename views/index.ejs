@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Gudea:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <!-- <div class="logo-image">
+        <img src="/images/logo.png" style="width: 100px; height: auto;">
+    </div> -->
+</head>
+<body>
+    <nav>
+        <div class="menu-icon" id="menu-icon">
+            &#9776; <!-- This is the hamburger icon -->
+        </div>
+        <ul class="nav-links" id="nav-bar">
+            <li id="nav-bar"><a href="/">Home</a></li>
+            <li id="nav-bar"><a href="/recipe">Recipes</a></li>
+            <li id="nav-bar"><a href="/create">Create</a></li>
+        </ul>
+        <div id="mobile-nav">
+            <ul class="nav-links-mobile" id="nav-links-mobile">
+                <li id="mobile-nav-bar"><a href="/">Home</a></li>
+                <li id="mobile-nav-bar"><a href="/recipe">Recipes</a></li>
+                <li id="mobile-nav-bar"><a href="/create">Create</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="first-element" id="pantry">
+        <form action="/recipe" method="get">
+            <div id="pantry-form">
+                <div>
+                    <h2 class="headline">What is in your pantry?</h2>
+                </div>
+                <div>
+                    <div class="pantry-item-selections" id="seasoning">
+                        <h3 class="header">Seasonings</h3>
+                            <div class="checkboxes" id="seasoning">
+                                <div class="checkbox-container"><input type="checkbox" class="seasoning" name="salt"><label>Salt</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="seasoning" name="pepper"><label>Pepper</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="seasoning" name="sugar"><label>Sugar</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="seasoning" name="garlic-powder"><label>Garlic Powder</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="seasoning" name="onion-powder"><label>Onion Powder</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="seasoning" name="oregano"><label>Oregano</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="seasoning" name="paparika"><label>Paparika</label></div>
+                            </div>
+                    </div>
+                    <div class="pantry-item-selections" id="protein">
+                        <h3 class="header">Proteins</h3>
+                            <div class="checkboxes" id="protein"> 
+                                <div class="checkbox-container"><input type="checkbox" class="protein" name="chicken"><label>Chicken</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="protein" name="pork"><label>Pork</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="protein" name="beef"><label>Beef</label></div>        
+                                <div class="checkbox-container"><input type="checkbox" class="protein" name="lamb"><label>Lamb</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="protein" name="fish"><label>Fish</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="protein" name="tofu"><label>Tofu</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="protein" name="eggs"><label>Eggs</label></div>
+                            </div>
+                    </div>
+                    <div class="pantry-item-selections" id="vegetable">
+                        <h3 class="header">Vegetables</h3>
+                            <div class="checkboxes" id="vegetable">
+                                <div class="checkbox-container"><input type="checkbox" class="vegetable" name="spinach"><label>Spinach</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="vegetable" name="brocolli"><label>Brocolli</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="vegetable" name="carrot"><label>Carrot</label></div> 
+                                <div class="checkbox-container"><input type="checkbox" class="vegetable" name="lettuce"><label>Lettuce</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="vegetable" name="cabbage"><label>Cabbage</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="vegetable" name="long-bean"><label>Long Bean</label></div> 
+                                <div class="checkbox-container"><input type="checkbox" class="vegetable" name="tomato"><label>Tomato</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="vegetable" name="onion"><label>Onion</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="vegetable" name="garlic"><label>Garlic</label></div>
+                            </div>
+                    </div>     
+                    <div class="pantry-item-selections" id="carbohydrate">
+                        <h3 class="header">Carbohydrates</h3>
+                            <div class="checkboxes" id="carbohydrate">
+                                <div class="checkbox-container"><input type="checkbox" class="carbohydrate" name="rice"><label>Rice</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="carbohydrate" name="potato"><label>Potato</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="carbohydrate" name="oats"><label>Oats</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="carbohydrate" name="pasta"><label>Pasta</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="carbohydrate" name="vermicelli"><label>Vermicelli</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="carbohydrate" name="bread"><label>Bread</label></div>
+                                <div class="checkbox-container"><input type="checkbox" class="carbohydrate" name="flour"><label>Flour</label></div>
+                            </div>
+                    </div>
+                </div>
+                <div class="pantry-buttons">
+                    <button class="button dark" id="more-ingredients">More Ingredients</button> 
+                    <input type="submit" class="button dark" value="Submit"> 
+                </div>    
+            </div>
+        </form>  
+        <div id="pantry-image">
+            <div><img src="/images/pic-4.jpeg" style="width: 100%; height: auto; object-fit: cover;"></div>
+        </div>
+    </div>  
+    <div class="first-element" id="add-ingredients">
+        <div id="add-ingredients-form">
+            <div>
+                <h1 class="headline">These ingredients are in my pantry too!</h1>
+            </div>
+            <div id="pantry-user-input">
+                <label class="header" for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="seasoning">Seasoning</option>
+                    <option value="protein">Protein</option>
+                    <option value="vegetable">Vegetable</option>
+                    <option value="carbohydrate">Carbohydrate</option>
+                </select>
+                <label class="header" for="ingredient">Ingredient:</label>
+                <input type="text" id="pantry-add-ingredient" name="ingredient" required>
+                <button type="button" class="button dark" id="add">+</button>
+                <div class="gudea-bold" id="pantry-box"> 
+                </div>
+            </div>
+            <div>
+                <button type="button" class="button dark small-pill" id="submit-add-ingredients">Submit</button>
+            </div>
+        </div>    
+    </div>  
+    <script src="/js/homepage.js"></script>      
+</body>
+</html>
+

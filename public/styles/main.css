@@ -1,0 +1,910 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #FDE49E; /* 003a62 */
+    text-align: center;
+    font-optical-sizing: auto;
+    color:#DD761C;
+    justify-content: flex-start; /* Align items at the top */
+    align-items: center;
+    margin: 0;
+    font-family: "Gudea", sans-serif;
+    font-size: 17px;
+}
+
+img {
+    justify-content: center;
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    background-color: #FEB941;
+    z-index: 1000; /* Ensure the nav bar appears above other content */
+    width: 100%;
+    height: 6%;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    font-weight: 700;
+    font-family: "Yeseva One", serif;
+}
+
+ul#nav-bar{
+    list-style-type: none;
+    overflow: hidden;
+}
+
+li#nav-bar{
+    float: left;
+}
+
+li#nav-bar a, li#mobile-nav-bar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li#nav-bar a:hover {
+    background-color: #FDE49E;
+}
+
+.menu-icon, #mobile-nav {
+    display: none;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-links-mobile {
+    list-style: none;
+}
+
+.first-element {
+    display: flex;
+    gap: 54px;
+}
+
+.first-element#pantry, .first-element#add-ingredients {
+    margin: auto;
+}
+
+.first-element#recipe-list-filter, .first-element#create-recipe {
+    margin-top: 117px;
+    margin-bottom: 41px;
+}
+
+#pantry-form {
+    text-align: left;
+    color:#DD761C;
+    display: grid;
+    gap: 9%;
+}
+
+#add-ingredients-form {
+    display: grid;
+    gap: 15%;
+}
+
+.pantry-item-selections {
+    margin-bottom: 15px;
+}
+
+.checkboxes {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 2px; /* Space between checkbox and label */
+}
+
+#pantry-image {
+    width: 377px;
+}
+
+#pantry-image > div {
+    display: flex;
+    align-items: center;
+}
+
+#add-ingredients {
+    display: none;
+}
+
+#pantry-box {
+    background-color: #FEB941;
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 200px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pantry-box-items {
+    margin-top: 2px;
+}
+
+.recipe-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+
+#recipe-list-filter{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.recipe-tile {
+    position: relative;
+    cursor: pointer;
+    width: 300px;
+    height: 300px;
+}
+
+.recipe-name {
+    position: absolute;
+    top: 30%; /* Adjust this value as needed */
+    width: 51%;
+    background-color: cornsilk;
+    padding: 24px 28px; /* Optional: Add padding to the text */
+    box-sizing: border-box;
+    transition: transform 0.3s;
+    transform-origin: left; /* Flip from the top */
+    transform: rotateX(0); /* Initial state */
+}
+
+.recipe-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recipe-tile:hover .recipe-name {
+    transform: rotateX(90deg); /* Flip out effect */
+}
+
+/* RECIPE CARD */
+
+.recipe-page-item#title{
+    grid-column: 1 / -1;
+    border-top: 2px solid #000; /* Top border */
+    border-bottom: 2px solid #000; /* Bottom border */
+}
+
+#recipe-card-title {
+    margin: 14px;
+}
+
+#recipe-page-box {
+    background-color: cornsilk;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: auto auto;
+    gap: 14px;
+    width: 65%;
+    padding: 2%;
+    margin: auto;
+}
+
+.recipe-page-item > #header {
+    padding-top: 4px; 
+    padding-bottom: 4px;
+    border-top: 1.5px solid #000; /* Top border */
+    border-bottom: 1.5px solid #000; /* Bottom border */
+    margin: 12px;
+    text-align: center;
+}
+
+.recipe-page-item#ingredients, .recipe-page-item#instructions {
+    width: fit-content;
+    text-align: left;
+}
+
+.recipe-page-item#image {
+    height: 300px;
+    width: 300px;
+    padding-top: 19px;
+}
+
+.recipe-page-item#image > img {
+    width:100%; 
+    height:100%; 
+    object-fit: cover;
+}
+
+/* CREATE RECIPE COMPONENTS */
+
+.create-recipe {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Two columns, first column auto-sized */
+    gap: 18px; /* Space between items */
+}
+
+.create-recipe-details#upload-photo, .create-recipe-details-item {
+    box-shadow: 8px 7px 0px #DD761C;
+}
+
+.create-recipe-details#upload-photo {
+    /* Style for the image div */
+    grid-column: 1; /* Place in the first column */
+    background-color: #FEB941;
+    border-radius: 5px;
+    height: fit-content;
+    padding: 27px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-container {
+    gap: 4%;
+    width: 136px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container img{
+    width: 135px;
+    height: 150px;
+    object-fit: cover;
+    background-color: cornsilk;
+}
+
+.preview {
+    margin-top: 20px;
+    max-width: auto;
+    max-height: 300px;
+    border-radius: 5px;
+}
+
+input[type="file"] {
+    display:none;
+}
+
+label[for="upload-button"] {
+    background-color: #FDE49E;
+    font-family: "Gudea", sans-serif;
+    font-weight: 700;
+    padding: 6px;
+    border-radius: 27px;
+    margin-top: 12px;
+}
+
+label[for="upload-button"]:hover {
+    background-color: #DD761C;
+    color: beige;
+}
+
+.create-recipe-details#text {
+    /* Style for the details container */
+    display: grid;
+    /* grid-template-rows: repeat(3, auto); Three rows, auto-sized */
+    gap: 15px; /* Space between items */
+    text-align: left;
+}
+
+.create-recipe-details-item{
+    background-color: #FEB941;
+    border-radius: 7px;
+    padding: 33px;
+    display: flex;
+    gap: 20px;
+}
+
+.create-recipe-details-item#title {
+    gap: 7px
+}
+
+.create-recipe-details-item#ingredients {
+    display: grid;
+    grid-template-columns: 27% 59% 6%;
+    gap: 3%;
+}
+
+.create-recipe-details-item > #add-button {
+    align-self: flex-end;
+}
+
+.create-recipe-details-item#title, .create-recipe-details-item#instructions {
+    flex-direction: column;
+}
+
+.create-recipe-buttons {
+    display: flex;
+    gap: 3px;
+}
+
+#ingredient-box {
+    margin-top: 20px;
+}
+
+#ingredient-box > .item {
+    display: flex;
+    gap: 5px;
+    justify-content: left;
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* INPUTS */
+
+select {
+    padding: 4px;
+    border: none;
+    background-color: #FEB941;
+    font-family: "Gudea", sans-serif;;
+    font-size: 16px;
+    color: white;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px 5px;
+    text-align: center;
+}
+
+input#pantry-add-ingredient {
+    background-color: #FEB941;
+    color: white;
+    border: none;
+    padding: 4px;
+    font-size: 16px;
+}
+
+input#title {
+    border: none;
+    background-color: #FEB941;
+    border-bottom: 2px solid #DD761C;
+    width: 100%;
+    font-size: 18px;
+}
+
+input#journal-ingredient, input#journal-measure {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: #FEB941;
+    border: none;
+    border-bottom: 2px solid #DD761C;
+    width: 100%;
+    color: #2f2e2e;
+    font-size: 18px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
+
+input::placeholder {
+    color: white;
+    opacity: 0.4;
+}
+
+textarea {
+    font-size: 18px;
+}
+
+textarea::placeholder{
+    color: #2f2e2e;
+    opacity: 0.3;
+    font-size: 18px;
+}
+
+textarea#instruction {
+    background-color:#FDE49E;
+    width: 100%;
+    /* padding: 25px; */
+    border: none;
+    font-family: "Gudea", sans-serif;
+}
+
+/* BUTTONS */
+
+.button {
+    border: none; /* Remove border */
+    padding: 9px 22px; /* Padding */
+    border-radius: 27px; /* Rounded Corners */
+    font-size: 17px; /* Font size */
+    font-family: "Yeseva One", serif;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.darker {
+    background-color: #DD761C;
+    color: white;
+}
+
+.dark {
+    background-color: #FEB941;
+    color: white;
+}
+
+.light {
+    background-color: #FDE49E;
+    color: #DD761C;
+}
+
+.shadow {
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.light:hover {
+    background-color: #DD761C;
+    color: white;
+}
+
+.dark:hover {
+    background-color: #DD761C; 
+    color: black
+}
+
+.darker:hover {
+    background-color: #FEB941;
+}
+
+.button#add{
+    padding: 1px 17px 3px 17px;
+    border-radius: 0;
+    font-size: 20px;
+}
+
+.button#add-ingredient{
+    padding: 1px 10px 3px 10px;
+    border-radius: 0;
+    font-size: 20px;
+    box-shadow: none;
+}
+
+.button#submit-recipe {
+    width: 24%;
+    justify-self: center;
+    margin-top: 30px;
+    box-shadow: 4px 5px 0px #DD761C;
+}
+
+.button#submit-recipe:hover {
+    box-shadow: none;
+}
+
+.button.small-pill {
+    padding: 10px 40px 10px 40px;
+}
+
+.button.x-small.remove, .button.x-small.edit {
+    background-color: #FDE49E; 
+    color: #DD761C;
+    padding: 0px 4px 0px 4px;
+    font-size: 10px;
+    border-radius: 0;
+    margin: 0;
+    font-family: "Gudea", sans-serif;
+    font-weight: 700;
+}
+
+.button.remove {
+    background-color: #FDE49E;
+    color: #DD761C;
+    padding: 1px 3px 1px 3px;
+    margin: 9px 3px 6px 0px;
+    font-size: 10px;
+    border-radius: 0;    
+    font-family: "Gudea", sans-serif;
+    font-weight: 700;
+}
+
+.button.remove:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* FONTS */
+
+.headline {
+    font-family: "Yeseva One", serif;
+    font-size: 68px;
+}
+
+.header {
+    font-size: 25px;
+    font-family: "Yeseva One", serif;
+    padding-bottom: 1%;
+}
+
+.large {
+    font-family: "Yeseva One", serif;
+    font-size: 20px;
+}
+
+.title {
+    font-family: "Yeseva One", serif;
+    font-size: 17px;
+}
+
+.small {
+    font-size: 10px;
+}
+
+/* Styles for small monitor (laptops) */
+@media (max-width: 1920px) {
+
+    body {
+        display: flex;
+        flex-direction: column;
+        background-color: #FDE49E; /* 003a62 */
+        text-align: center;
+        font-optical-sizing: auto;
+        color:#DD761C;
+        justify-content: flex-start; /* Align items at the top */
+        align-items: center;
+        margin: 0;
+        font-family: "Gudea", sans-serif;
+        font-size: 14px;
+    }
+
+    nav {
+        position: fixed;
+        display: flex;
+        background-color: #FEB941;
+        z-index: 1000;
+        width: 100%;
+        height: 6%;
+        top: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        font-weight: 700;
+        font-family: "Yeseva One", serif;
+    }
+
+    .headline {
+        font-family: "Yeseva One", serif;
+        font-size: 54px;
+    }
+
+    .header {
+        font-size: 20px;
+        font-family: "Yeseva One", serif;
+        padding-bottom: 1%;
+    }
+
+    .button {
+        border: none;
+        padding: 9px 22px;
+        border-radius: 27px;
+        font-size: 14px;
+        font-family: "Yeseva One", serif;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #pantry-image {
+        width: 305px;
+    }
+
+    #add-ingredients-form {
+        display: grid;
+        gap: 10%;
+    }
+
+    .first-element#recipe-list-filter, .first-element#create-recipe {
+        margin-top: 110px;
+        margin-bottom: 40px;
+    }
+
+    input#title {
+        border: none;
+        background-color: #FEB941;
+        border-bottom: 2px solid #DD761C;
+        width: 100%;
+        font-size: 15px;
+    }
+
+    input#journal-ingredient, input#journal-measure {
+        padding-top: 2px;
+        padding-bottom: 2px;
+        background-color: #FEB941;
+        border: none;
+        border-bottom: 2px solid #DD761C;
+        width: 100%;
+        color: black;
+        font-size: 15px;
+    }
+
+    textarea {
+        font-size: 15px;
+    }
+}
+
+/* Styles for mobiles */
+@media (max-width: 400px) {
+
+    html, body {
+        height: unset;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        background-color: #FDE49E;
+        text-align: center;
+        font-optical-sizing: auto;
+        color: #DD761C;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0;
+        font-family: "Gudea", sans-serif;
+        font-size: 18px;
+    }
+
+    .headline {
+        font-family: "Yeseva One", serif;
+        font-size: 54px;
+    }
+
+    .header {
+        font-size: 28px;
+        font-family: "Yeseva One", serif;
+        padding-bottom: 2%;
+    }
+
+    #pantry-image {
+        display: none;
+    }
+
+    .pantry-buttons {
+        justify-self: center;
+    }
+
+    .pantry-item-selections {
+        padding-bottom: 5%;
+    }
+
+    #pantry-form {
+        text-align: left;
+        color: #DD761C;
+        display: grid;
+        gap: 7%;
+    }
+
+    .first-element#pantry, .first-element#add-ingredients {
+        /* margin: auto; */
+        margin: 21% 10% 38% 10%;
+        height: 100%;
+    }
+
+    nav {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        background-color: #FEB941;
+        z-index: 1000; /* Ensure the nav bar appears above other content */
+        width: 100%;
+        height: fit-content;
+        top: 0;
+        left: 0;
+        justify-content: left;
+        align-items: center;
+        font-size: 25px;
+        font-weight: 700;
+        font-family: "Yeseva One", serif;
+    }
+
+    .menu-icon {
+        display: block;
+        margin: 15px;
+        align-self: flex-start;
+    }
+    
+    #nav-bar {
+        display: none;
+    }
+
+    #mobile-nav {
+        display: none;
+        background-color: #FEB941;
+        margin: 30px;
+    }
+
+    .button {
+        border: none;
+        padding: 9px 22px;
+        border-radius: 27px;
+        font-size: 17px;
+        font-family: "Yeseva One", serif;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .button#add {
+        width: 25%;
+        font-size: 27px;
+        padding: 0;
+        justify-self: center;
+        border-radius: 20px;
+        margin-bottom: 33px;
+    }
+
+    #pantry-user-input {
+        display: grid;
+    }
+
+    #pantry-box {
+        background-color: #FFA62F;
+        border-radius: 8px;
+        padding: 20px;
+        min-height: 100px;
+        margin: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    select#category, input#pantry-add-ingredient {
+        margin-bottom: 10px;
+        padding: 7px;
+        text-align: center;
+    }
+
+    label[for="category"], label[for="ingredient"] {
+        padding-bottom: 1px;
+    }
+
+    .recipe-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        gap: 10px;
+        margin-left: 6px;
+        margin-right: 6px;
+    }
+
+    .recipe-tile {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .recipe-tile {
+        position: relative;
+        cursor: pointer;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .recipe-name {
+        background-color: cornsilk;
+        padding: 24px 28px;
+        position: initial;
+        width: auto;
+    }
+
+    .title {
+        font-family: "Yeseva One", serif;
+        font-size: 13px;
+    }
+
+    #recipe-page-box {
+        background-color: cornsilk;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+        display: grid;
+        gap: 14px;
+        width: 65%;
+        padding: 11%;
+        margin-top: 22%;
+        margin-bottom: 11%;
+        justify-content: center;
+        grid-template-columns: 1fr;
+    }
+
+    .recipe-page-item#image {
+        height: 282px;
+        width: 278px;
+        padding-top: 19px;
+        object-fit: cover;
+    }
+
+    .recipe-page-item > #header {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 45px;
+        padding-right: 45px;
+        padding: 8px 45px 8px 45px;
+        /* padding: 23px; */
+        border-top: 1.5px solid #000;
+        border-bottom: 1.5px solid #000;
+        margin: 12px;
+        text-align: center;
+    }
+
+    .create-recipe {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-left: 14px;
+        margin-right: 14px;
+    }
+
+    .create-recipe-details#upload-photo {
+        background-color: #FEB941;
+        border-radius: 5px;
+        height: fit-content;
+        padding: 27px;
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .image-container {
+        width: unset;
+        height: unset;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 324px;
+        object-fit: cover;
+        /* background-color: cornsilk; */
+    }
+
+    .create-recipe-details-item#ingredients {
+        display: grid;
+        grid-template-columns: none;
+        gap: inherit;
+    }
+
+    .create-recipe-details-item > #add-button {
+        justify-self: center;
+    }
+
+    .button#add-ingredient {
+        padding: 0 20px 0 20px;
+        font-size: 20px;
+        box-shadow: none;
+        justify-self: center;
+        border-radius: 20px;
+    }
+
+    .button#submit-recipe {
+        width: 39%;
+        justify-self: center;
+    }
+
+    .button#more-ingredients {
+        margin-bottom: 10px;
+    }
+
+    label#journal-measure-item, label#journal-ingredient-item {
+        padding-bottom: 10px;
+    }
+}
+

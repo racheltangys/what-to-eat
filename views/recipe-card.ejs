@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What to eat?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Gudea:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+<body>
+    <nav>
+        <div class="menu-icon" id="menu-icon">
+            &#9776; <!-- This is the hamburger icon -->
+        </div>
+        <ul class="nav-links" id="nav-bar">
+            <li id="nav-bar"><a href="/">Home</a></li>
+            <li id="nav-bar"><a href="/recipe">Recipes</a></li>
+            <li id="nav-bar"><a href="/create">Create</a></li>
+        </ul>
+        <div id="mobile-nav">
+            <ul class="nav-links-mobile" id="nav-links-mobile">
+                <li id="mobile-nav-bar"><a href="/">Home</a></li>
+                <li id="mobile-nav-bar"><a href="/recipe">Recipes</a></li>
+                <li id="mobile-nav-bar"><a href="/create">Create</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="recipe-page-box">
+        <div class="large recipe-page-item" id="title">
+            <h1 id="recipe-card-title"><%= recipe.strMeal %></h1>
+        </div>
+        <div class="recipe-page-item" id="image">
+            <img src="<%= recipe.strMealThumb %>">
+        </div>
+        <div class="recipe-page-item" id="ingredients">
+            <h2 class="header" id="header">Ingredients</h2>
+                <% ingredients.forEach(ingredient => { %>   
+                    <li><%=ingredient%></li>
+                <% }) %>
+        </div>
+        <div class="recipe-page-item" id="instructions">
+            <h2 class="header" id="header">Intructions</h2>
+            <p><%= recipe.strInstructions %></p>
+        </div>
+    </div>
+    <script src="/js/recipe-card.js"></script>
+</body>
+</html>
